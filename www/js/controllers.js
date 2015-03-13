@@ -23,15 +23,17 @@ angular.module('starter.controllers', [])
 
 .controller('LinesCtrl', function($rootScope, $scope, $ionicModal, $timeout) {
   $scope.search = "";
-  //TODO get lines from JSON line: SERVICE!!
   $scope.lines = lines;
-  // $scope.lines = getLines();
 })
 
 .controller('StopsCtrl', function($rootScope, $scope, $ionicModal, $timeout) {
   $scope.search = "";
-  //TODO get stops from JSON line: SERVICE!!
   $scope.stops = getStops();
+})
+
+.controller('StopCtrl', function($rootScope, $scope, $ionicModal, $timeout) {
+  $scope.search = "";
+  
 })
 
 .controller('DirectionsCtrl', function($rootScope, $scope, $ionicModal, $timeout, $stateParams) {

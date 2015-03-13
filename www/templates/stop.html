@@ -1,0 +1,9 @@
+<ion-view view-title="Departures from stop time-by-time">
+  <ion-content>
+    <ion-list>
+    	<ion-item ng-repeat="stop in stops | polishFilter:search" ng-href="#/app/stop/{{stop.id}}">
+			<stop-name data="stop"></stop-name>
+    	</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

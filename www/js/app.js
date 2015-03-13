@@ -32,6 +32,15 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.directives','
     }
   })
 
+  .state('app.main', {
+    url: "/",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/main_menu.html"
+      }
+    }
+  })
+
   .state('app.lines', {
     url: "/lines",
     views: {
@@ -72,15 +81,15 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.directives','
     }
   })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
+  .state('app.stop', {
+    url: "/stop/:stop_id",
     views: {
       'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+        templateUrl: "templates/stop.html",
+        controller: "StopCtrl"
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/lines');
+  $urlRouterProvider.otherwise('/app/');
 });
