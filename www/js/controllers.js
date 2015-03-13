@@ -1,48 +1,99 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-  // Form data for the login modal
-  $scope.loginData = {};
+.controller('GlobalCtrl', function($rootScope,DataService) {
+  $rootScope.getTheData = function() {
+    DataService.getData().then(function(v) {
+      // console.log(v);
+      daytypes = v.daytypes;
+      departures = v.departures;
+      directions = v.directions;
+      lines = v.lines;
+      routes = v.routes;
+      signs = v.signs;
+      stops = v.stops;
+    }, function(e) {
+      console.log(e);
+    });
+  };
+})
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
+.controller('AppCtrl', function($rootScope, $scope, $ionicModal, $timeout, DataService) {
+  
+})
+
+.controller('LinesCtrl', function($rootScope, $scope, $ionicModal, $timeout) {
+  $scope.search = "";
+  //TODO get lines from JSON line: SERVICE!!
+  $scope.lines = lines;
+  // $scope.lines = getLines();
+})
+
+.controller('StopsCtrl', function($rootScope, $scope, $ionicModal, $timeout) {
+  $scope.search = "";
+  //TODO get stops from JSON line: SERVICE!!
+  $scope.stops = getStops();
+})
+
+.controller('DirectionsCtrl', function($rootScope, $scope, $ionicModal, $timeout, $stateParams) {
+  $scope.search = "";
+  $scope.line = $stateParams.line;
+
+  var out = [];
+  getDirectionsForLine($scope.line).forEach(function(d) {
+    out.push({
+      name: d.dir_name,
+      dir_no: d.dir_no,
+      stops: getStopsForDirection($scope.line,d.dir_no)
+    })
   });
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
+  // console.log(out);
+  $scope.directions = out;
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
+.controller('DeparturesCtrl',  function($rootScope, $scope, $ionicModal, $timeout, $stateParams){
+  $scope.line = $stateParams.line;
+  $scope.dir_no = $stateParams.dir_no;
+  $scope.stop_id = $stateParams.stop_id;
+  $scope.stopName = getStopName($scope.stop_id);
+  $scope.dir_name = getDirectionsForLine($scope.line)[$scope.dir_no-1]["dir_name"];
+  $scope.days = DAYS;
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+  $scope.compareTimes = compareTimes;
+  $scope.countDataInDepartures = countDataInDepartures;
+
+  var tmpDate = new Date();
+  $scope.currentTime = tmpDate.getHours()+":"+tmpDate.getMinutes();
+  $scope.nextHour = (tmpDate.getHours()+1)+":"+tmpDate.getMinutes();
+
+  var signs_temp = [];
+  var signs_temp1 = [];
+  var departures_temp = [];
+  var hrs = getHoursInDepartures($scope.line,$scope.dir_no,$scope.stop_id);
+
+  DAYS.forEach(function(d,i) {
+    var dhTmp = [];
+    hrs.forEach(function(h,j) {
+      var dTmp = getDeparturesForHour($scope.line,$scope.dir_no,$scope.stop_id,h,i+1);
+      dTmp.forEach(function(f) {
+        if(f.signs.length)
+          signs_temp.push(f.signs);
+      });
+      dhTmp.push(dTmp);
+    });
+    departures_temp.push(dhTmp);
+  });
+  signs_temp.forEach(function(d) {
+    d.split("").forEach(function(e) {
+      signs_temp1.push(e);
+    });
+  });
+  signs_temp1 = signs_temp1.filter(function(v,i,s) {return s.indexOf(v) ===i});
+
+  $scope.hours = hrs;
+  $scope.departures = departures_temp;
+  $scope.signs = getSignsOnlyNeeded($scope.line,$scope.dir_no,signs_temp1);
+  $scope.stops = getStopsForDirection($scope.line,$scope.dir_no);
+
+  console.log($scope.departures);
 });
+

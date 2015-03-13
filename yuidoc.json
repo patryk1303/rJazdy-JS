@@ -1,0 +1,9 @@
+{
+    "name": "rJazdy_JS",
+    "description": "",
+    "version": "0.0.1",
+    "url": "http://rjazdy.esy.es/",
+    "options": {
+        "outdir": "doc"
+    }
+}

@@ -139,6 +139,15 @@
   max-width: 90%;
 }
 
+.col-85 {
+  @include flex(0, 0, 85%);
+  max-width: 85%;
+}
+.col-15 {
+  @include flex(0, 0, 15%);
+  max-width: 15%;
+}
+
 
 /* Responsive Grid Classes */
 /* Adding a class of responsive-X to a row */

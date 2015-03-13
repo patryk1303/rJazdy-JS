@@ -1,0 +1,13 @@
+<ion-view view-title="Lines">
+  <ion-content>
+  	<label class="item item-input item-floating-label">
+		<span class="input-label">Szukaj</span>
+		<input type="text" placeholder="Szukaj" ng-model="search">
+  	</label>
+    <ion-list>
+    	<ion-item ng-repeat="line in lines | filter:search" ng-href="#/app/line/{{line.line}}">
+			{{line.line}}
+    	</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

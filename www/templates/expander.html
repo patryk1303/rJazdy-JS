@@ -1,0 +1,11 @@
+<div class="expander">
+	<div class="title" ng-class="showMe?'toggled':''">
+		<ion-item ng-click="toggle()" class="item-stable">
+			<i class="fa" ng-class="showMe?'fa-arrow-down':'fa-arrow-right'"></i>
+			{{title}}
+		</ion-item>
+		<!-- <br class="clear-fix"> -->
+	</div>
+	<!-- <div class="body check-element animate-show" ng-show="showMe" ng-transclude></div> -->
+	<ion-item class="item-accordion" ng-show="showMe" ng-transclude></ion-item>
+</div>

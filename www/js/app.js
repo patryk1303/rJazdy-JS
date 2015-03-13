@@ -1,10 +1,7 @@
-// Ionic Starter App
+var daytypes,departures,directions,lines,routes,signs,stops = null;
+var DAYS = ["Dni powszednie","Soboty","Niedziele i święta"];
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','starter.directives','starter.services','starter.filters'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -27,35 +24,53 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/app",
     abstract: true,
     templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
-  })
-
-  .state('app.search', {
-    url: "/search",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
+    controller: 'AppCtrl',
+    resolve: {
+      load: function(DataService) {
+        return DataService.getData();
       }
     }
   })
 
-  .state('app.browse', {
-    url: "/browse",
+  .state('app.lines', {
+    url: "/lines",
     views: {
       'menuContent': {
-        templateUrl: "templates/browse.html"
+        templateUrl: "templates/lines.html",
+        controller: "LinesCtrl"
       }
     }
   })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
+
+  .state('app.directions', {
+    url: "/line/:line",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/directions.html",
+        controller: "DirectionsCtrl"
       }
-    })
+    }
+  })
+
+  .state('app.departures', {
+    url: "/line/:line/:dir_no/:stop_id",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/departures.html",
+        controller: "DeparturesCtrl"
+      }
+    }
+  })
+
+  .state('app.stops', {
+    url: "/stops",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/stops.html",
+        controller: "StopsCtrl"
+      }
+    }
+  })
 
   .state('app.single', {
     url: "/playlists/:playlistId",
@@ -67,5 +82,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/lines');
 });

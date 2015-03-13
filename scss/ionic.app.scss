@@ -21,3 +21,32 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.item-accordion {
+	line-height: 38px;
+	padding-top: 0;
+	padding-bottom: 0;
+	transition: 0.09s all linear;
+
+	&.ng-hide {
+		line-height: 0px;
+	}
+
+	&.ng-hide-add,&.ng-hide-remove {
+		display: block !important;
+	}
+}
+
+div.hour {
+	font-weight: 900;
+}
+
+div.mins {
+	a {
+		text-decoration: none;
+		color: $calm;
+		transition: color 0.3s ease;
+		&:hover,&:focus {
+			color: $royal;
+		}
+	}
+}

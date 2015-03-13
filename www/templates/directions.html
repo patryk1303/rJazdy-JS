@@ -1,0 +1,21 @@
+<ion-view view-title="Directions for line {{line}}">
+  <ion-content>
+<!--   	<label class="item item-input item-floating-label">
+		<span class="input-label">Szukaj</span>
+		<input type="text" placeholder="Szukaj" ng-model="search">
+  	</label> -->
+    <accordion>
+      <expander ng-repeat="direction in directions" expander-title="{{direction.name}}">
+        <ion-item ng-repeat="stop in direction.stops" ng-href="#/app/line/{{line}}/{{direction.dir_no}}/{{stop.stop_id}}">
+          <stop-name data="stop.stop_name"></stop-name>
+        </ion-item>
+      </expander>
+    </accordion>
+    <!-- <ion-list>
+
+    	<ion-item ng-repeat="line in lines | filter:search" ng-href="#/app/line/{{line.line}}">
+			{{line.line}}
+    	</ion-item>
+    </ion-list> -->
+  </ion-content>
+</ion-view>

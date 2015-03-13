@@ -1,0 +1,13 @@
+<ion-view view-title="Stops">
+  <ion-content>
+  	<label class="item item-input item-floating-label">
+		<span class="input-label">Szukaj</span>
+		<input type="text" placeholder="Szukaj" ng-bind="search">
+  	</label>
+    <ion-list>
+    	<ion-item ng-repeat="stop in stops | polishFilter:search" ng-href="#/app/stop/{{stop.id}}">
+			<stop-name data="stop"></stop-name>
+    	</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

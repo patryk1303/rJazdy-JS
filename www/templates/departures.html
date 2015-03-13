@@ -1,0 +1,30 @@
+<ion-view view-title="Departures for line {{line}}">
+  <ion-content>
+        <ion-item>
+          <i class="fa fa-spoon"></i> <stop-name data="stopName"></stop-name>
+        </ion-item>
+    <accordion>
+      <expander ng-repeat="(dayNo,departureDay) in departures" expander-title="{{days[dayNo]}}" ng-show="countDataInDepartures(departureDay)">
+        <ion-item ng-repeat="(h, dep) in departureDay" ng-show="dep.length">
+          <div class="row">
+            <div class="hour col-15">{{hours[h]}}</div>
+            <div class="mins col-85">
+              <span
+                ng-repeat="depMin in dep" 
+                ng-class='compareTimes("{{hours[h]}}:{{depMin.mins}}","{{currentTime}}","{{nextHour}}")?"next_h":""'>
+                <a ng-href="#/app/trip/{{line}}/{{dir_no}}/{{stop_id}}/{{depMin.trip_no}}/{{dayNo+1}}">
+                  {{depMin.mins}}<sub>{{depMin.signs}}</sub>
+                </a>
+              </span>
+            </div>
+          </div>
+        </ion-item>
+      </expander>
+    </accordion>
+    <div class="bar bar-royal" ng-show="signs">
+        <span ng-repeat="sign in signs">
+          {{sign.sign}} - {{sign.description}}
+        </span>
+    </div>
+  </ion-content>
+</ion-view>

@@ -7120,6 +7120,24 @@ a.button {
   flex: 0 0 90%;
   max-width: 90%; }
 
+.col-85 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 85%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 85%;
+  -ms-flex: 0 0 85%;
+  flex: 0 0 85%;
+  max-width: 85%; }
+
+.col-15 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 15%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 15%;
+  -ms-flex: 0 0 15%;
+  flex: 0 0 15%;
+  max-width: 15%; }
+
 /* Responsive Grid Classes */
 /* Adding a class of responsive-X to a row */
 /* will trigger the flex-direction to */
@@ -7589,3 +7607,23 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear; }
+  .item-accordion.ng-hide {
+    line-height: 0px; }
+  .item-accordion.ng-hide-add, .item-accordion.ng-hide-remove {
+    display: block !important; }
+
+div.hour {
+  font-weight: 900; }
+
+div.mins a {
+  text-decoration: none;
+  color: #11c1f3;
+  transition: color 0.3s ease; }
+  div.mins a:hover, div.mins a:focus {
+    color: #886aea; }
