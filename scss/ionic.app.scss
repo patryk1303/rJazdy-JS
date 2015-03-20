@@ -25,7 +25,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	line-height: 38px;
 	padding-top: 0;
 	padding-bottom: 0;
-	transition: 0.09s all linear;
+	transition: 0.11s all linear;
 
 	&.ng-hide {
 		line-height: 0px;
@@ -50,3 +50,36 @@ div.mins {
 		}
 	}
 }
+
+.card .hour_block {
+	display: block;
+	float: left;
+	@media screen and (max-width: 300px) {
+		float: none;
+	}
+	padding: 10px;
+	.next_h {
+		a {
+			color: $assertive;
+			font-weight: 700;
+			&:hover, &:focus {
+				color: $energized;
+			}
+		}
+	}
+
+	a {
+		color: $positive;
+		text-decoration: none;
+		transition: all 0.22s ease-in;
+
+		&:hover, &:focus {
+			text-decoration: underline;
+			color: $dark;
+		}
+	}
+}
+
+.bold {font-weight: 700;}
+.push-left {float: left;}
+.push-right {float: right;}

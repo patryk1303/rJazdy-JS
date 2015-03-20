@@ -1,9 +1,15 @@
 <ion-view view-title="Departures from stop time-by-time">
   <ion-content>
     <ion-list>
-    	<ion-item ng-repeat="stop in stops | polishFilter:search" ng-href="#/app/stop/{{stop.id}}">
-			<stop-name data="stop"></stop-name>
-    	</ion-item>
+    	<ion-item><stop-name data="stop_name"></stop-name></ion-item>
     </ion-list>
+    <accordion>
+		<expander ng-repeat="(dayNo,departureDay) in deps" expander-title="{{days[dayNo]}}">
+			<ion-list>
+				<stop-departure data="departureDay" start-hour="currentTime" stop-id="stop_id"></stop-departure>
+			</ion-list>
+		</expander>
+    </accordion>
+    <!-- <stop-departure data="deps"></stop-departure> -->
   </ion-content>
 </ion-view>

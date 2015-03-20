@@ -31,9 +31,27 @@ angular.module('starter.controllers', [])
   $scope.stops = getStops();
 })
 
-.controller('StopCtrl', function($rootScope, $scope, $ionicModal, $timeout) {
-  $scope.search = "";
-  
+.controller('StopCtrl', function($rootScope, $scope, $ionicModal, $timeout, $stateParams) {
+  $scope.stop_id = $stateParams.stop_id;
+  $scope.stop_name = getStopName($scope.stop_id);
+
+  var tmpDate = new Date();
+  $scope.currentTime = tmpDate.getHours()+":"+tmpDate.getMinutes();
+  $scope.nextHour = (tmpDate.getHours()+1)+":"+tmpDate.getMinutes();
+
+  var deps = [];
+
+  DAYS.forEach(function(d,i) {
+    deps.push(getStopDepartures($scope.stop_id,i+1));
+  });
+
+  $scope.deps = deps;
+  $scope.days = DAYS;
+
+  $scope.compareTimes = compareTimes;
+
+  console.log($scope.deps);
+
 })
 
 .controller('DirectionsCtrl', function($rootScope, $scope, $ionicModal, $timeout, $stateParams) {
@@ -96,6 +114,19 @@ angular.module('starter.controllers', [])
   $scope.signs = getSignsOnlyNeeded($scope.line,$scope.dir_no,signs_temp1);
   $scope.stops = getStopsForDirection($scope.line,$scope.dir_no);
 
-  console.log($scope.departures);
+  // console.log($scope.departures);
+})
+
+.controller('TripCtrl', function($rootScope, $scope, $ionicModal, $timeout, $stateParams) {
+  //url: "/trip/:line/:dir_no/:stop_id/:trip_no/:day_id",
+  $scope.line = $stateParams.line;
+  $scope.dir_no = $stateParams.dir_no;
+  $scope.stop_id = $stateParams.stop_id;
+  $scope.trip_no = $stateParams.trip_no;
+  $scope.day_id = $stateParams.day_id;
+  $scope.days = DAYS;
+  // getTrip(line,dir_no,daytype_id,trip_no)
+  $scope.trip = getTrip($scope.line,$scope.dir_no,$scope.day_id,$scope.trip_no);
+  // console.log($scope.trip);
 });
 

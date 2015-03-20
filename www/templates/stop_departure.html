@@ -1,0 +1,15 @@
+<ion-item ng-repeat="row in data"
+	ng-href="#/app/trip/{{row.line}}/{{row.dir_no}}/{{stopId}}/{{row.trip_no}}/{{row.daytype_id}}"
+	>
+	<!-- compareTimes("{{row.hour}}:{{row.min}}","{{startHour}}","23:59") -->
+	<!-- <span ng-show='compareTimes("{{row.hour}}:{{row.min}}","{{startHour}}","23:59")'>ok</span> -->
+	<div class="push-left">
+		<i class="ion ion-android-bus"></i> {{row.line}}<br>
+		<i class="ion ion-android-time"></i> {{row.hour}}:{{row.min}}
+	</div>
+	<div class="push-right">
+		<i class="ion ion-arrow-right-c"></i> <stop-name data="row.stop_name"></stop-name>
+		<!-- <br> -->
+		<!-- {{startHour}} -->
+	</div>
+</ion-item>

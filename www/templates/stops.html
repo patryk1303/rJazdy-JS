@@ -5,7 +5,7 @@
 		<input type="text" placeholder="Szukaj" ng-bind="search">
   	</label>
     <ion-list>
-    	<ion-item ng-repeat="stop in stops | polishFilter:search" ng-href="#/app/stop/{{stop.id}}">
+    	<ion-item ng-repeat="stop in stops | polishFilter:search" ng-href="#/app/stop/{{stop.stop_id}}">
 			<stop-name data="stop"></stop-name>
     	</ion-item>
     </ion-list>

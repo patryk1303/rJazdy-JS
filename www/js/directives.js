@@ -1,7 +1,6 @@
 angular.module('starter.directives', [])
 
 .directive('stopName', function(){
-	// Runs during compile
 	return {
 		// name: '',
 		// priority: 1,
@@ -10,7 +9,7 @@ angular.module('starter.directives', [])
 		// controller: function($scope, $element, $attrs, $transclude) {},
 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
-		template: '<i ng-show="data.onReq==1" class="assertive fa fa-hand-o-up"></i> <span>{{data.name1}}</span><span ng-show="data.name2"> / {{data.name2}}</span>',
+		template: '<i ng-show="data.onReq==1" class="assertive ion ion-android-hand"></i> <span>{{data.name1}}</span><span ng-show="data.name2"> / {{data.name2}}</span>',
 		// templateUrl: '',
 		replace: false
 		// transclude: true,
@@ -19,7 +18,6 @@ angular.module('starter.directives', [])
 })
 
 .directive('accordion', function(){
-	// Runs during compile
 	return {
 		controller: function() {
 			var expanders = [];
@@ -59,5 +57,14 @@ angular.module('starter.directives', [])
 				accordionController.gotOpened(scope);
 			}
 		}
+	};
+})
+
+.directive('stopDeparture', function(){
+	return {
+		scope: {data: "=data",startHour: "=startHour", stopId:"=stopId"}, // {} = isolate, true = child, false/undefined = no change
+		restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+		templateUrl: 'templates/stop_departure.html',
+		replace: false
 	};
 });

@@ -71,6 +71,16 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.directives','
     }
   })
 
+  .state('app.trip', {
+    url: "/trip/:line/:dir_no/:stop_id/:trip_no/:day_id",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/trip.html",
+        controller: "TripCtrl"
+      }
+    }
+  })
+
   .state('app.stops', {
     url: "/stops",
     views: {
@@ -87,6 +97,15 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.directives','
       'menuContent': {
         templateUrl: "templates/stop.html",
         controller: "StopCtrl"
+      }
+    }
+  })
+
+  .state('app.help', {
+    url: "/help",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/help.html",
       }
     }
   });

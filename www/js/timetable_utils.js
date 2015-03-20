@@ -8,7 +8,7 @@ function getStops() {
 			stop_id: e.id,
 			name1: e.nazwa1,
 			name2: e.nazwa2,
-			req: e.nz
+			onReq: e.nz
 		});
 	});
 	return out;
@@ -233,7 +233,7 @@ function getStopDepartures(stop_id,daytype_id) {
     out.push({
        line: line,
        dir_no: dir_no,
-       stop_id: e.przyst_id,
+       // stop_id: e.przyst_id,
        // stop_name: {name1:"Test", name2: "TTT", req: "1"},//getLastStopInTrip(line,dir_no,daytype_id,e.kurs_nr),
        stop_name: getLastStopInTrip(line,dir_no,daytype_id,e.kurs_nr),
        // dir_name: getDirectionNameFromId(e.kier_id),

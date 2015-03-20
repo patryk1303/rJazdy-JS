@@ -7612,7 +7612,7 @@ a.button {
   line-height: 38px;
   padding-top: 0;
   padding-bottom: 0;
-  transition: 0.09s all linear; }
+  transition: 0.11s all linear; }
   .item-accordion.ng-hide {
     line-height: 0px; }
   .item-accordion.ng-hide-add, .item-accordion.ng-hide-remove {
@@ -7627,3 +7627,32 @@ div.mins a {
   transition: color 0.3s ease; }
   div.mins a:hover, div.mins a:focus {
     color: #886aea; }
+
+.card .hour_block {
+  display: block;
+  float: left;
+  padding: 10px; }
+  @media screen and (max-width: 300px) {
+    .card .hour_block {
+      float: none; } }
+  .card .hour_block .next_h a {
+    color: #ef473a;
+    font-weight: 700; }
+    .card .hour_block .next_h a:hover, .card .hour_block .next_h a:focus {
+      color: #ffc900; }
+  .card .hour_block a {
+    color: #387ef5;
+    text-decoration: none;
+    transition: all 0.22s ease-in; }
+    .card .hour_block a:hover, .card .hour_block a:focus {
+      text-decoration: underline;
+      color: #444; }
+
+.bold {
+  font-weight: 700; }
+
+.push-left {
+  float: left; }
+
+.push-right {
+  float: right; }
