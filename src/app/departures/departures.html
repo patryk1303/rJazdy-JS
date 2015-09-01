@@ -1,0 +1,49 @@
+<div class="row departure-header">
+	<div class="alert alert-info small-padding alert-print">
+		<div class="col-sm-5 separator hidden-xs">
+			<h1 class="line" ng-click="departures.otherLines()">
+				<big>{{departures.line}}</big>
+			</h1>
+		</div>
+		<div class="col sm-7">
+			<h2>
+				<stop-name data="departures.stopName"></stop-name>
+			</h2>
+			<span class="margin-left-30">
+				<i class="fa fa-arrow-circle-right"></i>
+				{{departures.directionName}}
+			</span>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<div class="row">
+	<accordion>
+		<accordion-group ng-repeat="(dayIndex,dayRow) in departures.daytypes" heading="{{dayRow.name}}" class="panel-success full-accordion" ng-if="departures.deps_counts[dayIndex]" is-open="departures.openGroups[dayIndex]">
+			<div class="hour-block"
+			ng-repeat="depHour in departures.departures[dayIndex]"
+			ng-if="depHour.deps_hour.length">
+				<span class="hour">{{depHour.hour}}</span>
+				<sup>
+					<departure-minute ng-repeat="dep in depHour.deps_hour" class="minute" departure="dep" signs="true"></departure-minute>
+				</sup>
+			</div>
+		</accordion-group>
+	</accordion>
+</div>
+
+<div class="row">
+	<div class="panel panel-default" ng-if="departures.signs.length">
+		<div class="panel-heading">
+			Oznaczdnia
+		</div>
+		<div class="panel-body">
+			<ul>
+				<li ng-repeat="sign in departures.signs">
+					{{sign.sign}} - {{sign.description}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

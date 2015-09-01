@@ -1,0 +1,21 @@
+<accordion>
+	<accordion-group ng-repeat="($i,day) in stop.daytypes" heading="{{day.name}}" class="panel-success full-accordion row-paint" is-open="stop.openGroups[$i]">
+		<div class="row" ng-if="stop.departures[$i].length === 0">
+			Brak odjazów
+		</div>
+		<div class="row" ng-repeat="depRow in stop.departures[$i]" ng-if="stop.departures[$i].length">
+			<div class="col-sm-1">
+				<i class="fa fa-bus"></i>
+				{{depRow.line}}
+			</div>
+			<div class="col-sm-9">
+				<i class="fa fa-arrow-circle-o-right"></i>
+				{{depRow.direction}}
+			</div>
+			<div class="col-sm-2">
+				<i class="fa fa-clock-o"></i>
+				<departure-minute departure="depRow" hours="true" moment="true"></departure-minute>
+			</div>
+		</div>
+	</accordion-group>
+</accordion>

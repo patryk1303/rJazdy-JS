@@ -1,0 +1,18 @@
+<form>
+	<div class="row">
+		<label for="minutesHols" class="col-sm-2">Pokaż odjazdy sprzed:</label>
+		<div class="col-sm-10">
+			<select ng-model="settings.minutesHold" class="form-control">
+				<option value="0">0 minut</option>
+				<option value="5">5 minut</option>
+				<option value="10">10 minut</option>
+				<option value="15">15 minut</option>
+				<option value="20">20 minut</option>
+				<option value="30">30 minut</option>
+			</select>
+		</div>
+	</div>
+	<div class="row margin-top-10">
+		<button type="button" class="btn btn-warning btn-block" ng-click="settings.save()">Zapisz</button>
+	</div>
+</form>

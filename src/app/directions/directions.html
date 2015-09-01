@@ -1,0 +1,13 @@
+<div class="row">
+	<accordion>
+		<accordion-group ng-repeat="direction in directions.directions" heading="{{direction.name}}" class="panel-info full-accordion">
+			<ul class="nav nav-pills nav-stacked nav-condensed">
+				<li ng-repeat="stop in direction.route">
+					<a class="btn btn-link text-left-i" ng-href="#/departures/{{directions.line}}/{{stop.dirnumber}}/{{stop.stopid}}">
+						<stop-name data="stop.stop_name" bull="true"></stop-name>
+					</a>
+				</li>
+			</ul>
+		</accordion-group>
+	</accordion>
+</div>

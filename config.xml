@@ -1,0 +1,11 @@
+<widget id="pl.patryk1303.tTable" version="0.0.1">
+    <name>tTableApp</name>
+    <description>
+        Simple public transport timetables app
+    </description>
+    <author email="patryk1303@gmail.com" href="http://p98-games.tk">
+        Patryk Wychowaniec
+    </author>
+    <content src="dist/index.html" />
+    <access origin="*" />
+</widget>

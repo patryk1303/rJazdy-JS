@@ -1,0 +1,15 @@
+<div class="row form-horizontal">
+	<div class="form-group">
+		<label for="searchString" class="col-sm-2 control-label">Szukaj: </label>
+		<div class="col-sm-10">
+			<input type="text" ng-model="stops.search" class="form-control" id="searchString" placeholder="Nazwa przystanku">
+		</div>
+	</div>
+	<ul class="nav nav-pills nav-stacked nav-condensed">
+		<li ng-repeat="stop in stops.stops | StopsFilter:stops.search">
+			<a ng-href="#/stops/{{stop.id}}" class="btn btn-link text-left-i">
+				<stop-name data="stop" bull="true"></stop-name>
+			</a>
+		</li>
+	</ul>
+</div>

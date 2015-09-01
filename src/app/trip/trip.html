@@ -1,0 +1,9 @@
+<div class="row">
+	<ul class="nav nav-pills nav-stacked nav-very-condensed">
+		<li ng-repeat="row in trip.trip" ng-class="{active: row.stopid == trip.stop}">
+			<a ng-href="#/departures/{{row.line}}/{{row.dirnumber}}/{{row.stopid}}" class="btn btn-link text-left-i">
+				{{row.hour}}:{{row.min}} <stop-name data="row.stop_name" bull="true"></stop-name>
+			</a>
+		</li>
+	</ul>
+</div>
