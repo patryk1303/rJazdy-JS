@@ -14,7 +14,7 @@ angular.module 'tTableApp'
     vm.weekDay = weekDay
     vm.deps_counts = []
     vm.openGroups = []
-
+    
     vm.otherLines = ->
       $modal.open
         templateUrl: 'app/departures/other_lines_modal.html'

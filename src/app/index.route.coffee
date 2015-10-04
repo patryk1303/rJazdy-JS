@@ -59,6 +59,8 @@ angular.module "tTableApp"
         redirectTo: "/"
   ]
 
-loadData = ['dataFilesService',(dataFilesService) ->
+loadData = ['dataFilesService','$localStorage',(dataFilesService,$localStorage) ->
+  if not $localStorage.favs
+    $localStorage.favs = []
   dataFilesService.getData()
 ]

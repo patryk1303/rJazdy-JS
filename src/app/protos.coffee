@@ -1,5 +1,5 @@
 Array::seek = Array::seek || (callback) ->
-  throw new TypeError() if typeof callback != 'function'
+  throw new TypeError() if typeof callback isnt 'function'
 
   arr = this
   out = []
@@ -9,7 +9,7 @@ Array::seek = Array::seek || (callback) ->
   out
 
 Array::each = Array::each || (callback) ->
-  throw new TypeError() if typeof callback != 'function'
+  throw new TypeError() if typeof callback isnt 'function'
 
   arr = this
   for el,i in arr

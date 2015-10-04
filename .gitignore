@@ -4,8 +4,3 @@ bower_components/
 .idea/
 .tmp/
 dist/
-dist
-bower_components
-node_modules
-dist
-.tmp

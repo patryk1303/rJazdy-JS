@@ -3,6 +3,10 @@ angular.module 'tTableApp'
     $rootScope.page = 'Ulubione'
     vm = @
     vm.favs = $localStorage.favs
-    console.log vm.favs
+    vm.removeItem = (index) ->
+      $localStorage.favs.splice(index,1)
+      vm.favs = $localStorage.favs
+      toastr.info 'Usunięto element z ulubionych'
+      return
     return
   ]

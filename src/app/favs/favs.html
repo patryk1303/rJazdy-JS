@@ -1,3 +1,16 @@
 <div class="row">
-	
+	<ul class="nav nav-stacked nav-pills">
+		<li ng-repeat="(i,fav) in favs.favs">
+			<a ng-href="#/{{fav.type}}/{{fav.content}}" class="btn btn-link text-left-i" on-long-press="favs.removeItem(i)">
+				<i class="fa fa-bus" ng-if="fav.type == 'lines'"></i>
+				<i class="fa fa-spoon" ng-if="fav.type == 'stops'"></i>
+				<i class="fa fa-arrow-circle-right" ng-if="fav.type == 'departures'"></i>
+				<span ng-if="fav.type != 'stops' && fav.type != 'departures'">{{fav.content}}</span>
+				<span ng-if="fav.type == 'stops'">
+					<stop-name-by-id id="fav.content"></stop-name-by-id>
+				</span>
+				<span ng-if="fav.type == 'departures'" ng-bind-html="fav.body"></span>
+			</a>
+		</li>
+	</ul>
 </div>

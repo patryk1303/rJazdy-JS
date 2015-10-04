@@ -1,7 +1,7 @@
 <div class="row">
 	<ul class="nav nav-pills bigger">
 		<li ng-repeat="line in lines.lines">
-			<a ng-href="#/lines/{{line.line}}" class="btn btn-link">
+			<a ng-href="#/lines/{{line.line}}" class="btn btn-link" on-long-press="lines.itemOnLongPress(line)">
 				{{line.line}}
 			</a>
 		</li>
