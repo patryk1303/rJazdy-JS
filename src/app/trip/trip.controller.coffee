@@ -9,7 +9,7 @@ angular.module 'tTableApp'
     vm.tripNo = $routeParams.tripNo
 
     # line,dirNo,daytype,tripNo
-    vm.trip = getTrip(vm.line,vm.dirNo,vm.daytype,vm.tripNo);
+    vm.trip = getTrip(vm.line,vm.dirNo,vm.daytype,vm.tripNo)
 
     return
   ]

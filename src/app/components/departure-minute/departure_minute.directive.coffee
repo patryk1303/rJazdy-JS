@@ -4,7 +4,7 @@ angular.module 'tTableApp'
       restrict: 'EA'
       replace: false
       scope: dep: '=departure', signs: '=signs', hours: '=', moment: '='
-      templateUrl: 'app/components/departure-minute/departure-minute.html' 
+      templateUrl: 'app/components/departure-minute/departure-minute.html'
       link: (scope, el, attrs, controller) ->
         tmpDate = new Date()
         currentDeparture = scope.dep.hour + ':' + scope.dep.min

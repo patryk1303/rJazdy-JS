@@ -1,0 +1,13 @@
+/* line 1, C:/Users/wychowaniecp/tTableApp/src/app/components/navbar/navbar.scss */
+.acme-navbar-text {
+  color: white; }
+  /* line 4, C:/Users/wychowaniecp/tTableApp/src/app/components/navbar/navbar.scss */
+  .acme-navbar-text:hover {
+    color: white;
+    text-decoration: none; }
+
+/* line 10, C:/Users/wychowaniecp/tTableApp/src/app/components/navbar/navbar.scss */
+.pointer:hover {
+  cursor: pointer; }
+
+/*# sourceMappingURL=navbar.css.map */

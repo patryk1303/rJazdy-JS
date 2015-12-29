@@ -1,0 +1,54 @@
+.tiles {
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  
+  .tile {
+    display: flex;
+    border: 2px solid white;
+    width: 50%;
+    height: 40vh;
+    background-size: cover;
+    
+    .tile-name {
+      align-self: flex-end;
+      display: block;
+      color: white;
+      text-align: left;
+      padding: 15px 10px;
+      font-size: 16px;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.5);
+      width: 100%;
+    }
+    
+    &:hover {
+      text-decoration: none;
+    }
+    
+    &#lines {
+      // my own photo
+      background-image: url(../assets/images/lines.jpg);
+    }
+    
+    &#stops {
+      // https://pixabay.com/pl/czeka%C4%87-przystanek-autobusowy-ludzi-254130/
+      background-image: url(../assets/images/stop.jpg);
+    }
+    
+    &#favs {
+      // https://www.flickr.com/photos/guano/5084304968
+      background-image: url(../assets/images/favs.jpg);
+    }
+    
+    &#settings {
+      // https://pixabay.com/pl/autobusem-meksyk-naprawy-647892/
+      background-image: url(../assets/images/settings.jpg);
+    }
+    
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}
