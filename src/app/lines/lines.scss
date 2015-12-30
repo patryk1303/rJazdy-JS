@@ -1,5 +1,11 @@
-.lines {
-	.btn {
-		margin: 5px;
-	}
+.tiles.tiles-lines {
+  .tile {
+    width: 15%;
+    height: 65px;
+    flex-grow: 1;
+    
+    @media screen and (max-width: 767px) {
+      width: 20%;
+    }
+  }
 }

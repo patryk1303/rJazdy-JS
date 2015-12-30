@@ -1,17 +1,16 @@
 /* line 1, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
 .tiles {
   width: 100%;
-  border: 1px solid black;
   display: flex;
   flex-wrap: wrap; }
-  /* line 7, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
+  /* line 6, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
   .tiles .tile {
     display: flex;
     border: 2px solid white;
     width: 50%;
     height: 40vh;
     background-size: cover; }
-    /* line 14, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
+    /* line 13, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
     .tiles .tile .tile-name {
       align-self: flex-end;
       display: block;
@@ -22,23 +21,23 @@
       text-transform: uppercase;
       background: rgba(0, 0, 0, 0.5);
       width: 100%; }
-    /* line 26, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
+    /* line 25, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
     .tiles .tile:hover {
       text-decoration: none; }
-    /* line 30, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
+    /* line 29, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
     .tiles .tile#lines {
       background-image: url(../assets/images/lines.jpg); }
-    /* line 35, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
+    /* line 34, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
     .tiles .tile#stops {
       background-image: url(../assets/images/stop.jpg); }
-    /* line 40, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
+    /* line 39, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
     .tiles .tile#favs {
       background-image: url(../assets/images/favs.jpg); }
-    /* line 45, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
+    /* line 44, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
     .tiles .tile#settings {
       background-image: url(../assets/images/settings.jpg); }
     @media screen and (max-width: 767px) {
-      /* line 7, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
+      /* line 6, C:/Users/wychowaniecp/tTableApp/src/app/main/main.scss */
       .tiles .tile {
         width: 100%; } }
 

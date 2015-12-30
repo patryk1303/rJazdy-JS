@@ -1,9 +1,9 @@
 <div class="row">
-	<ul class="nav nav-pills bigger">
-		<li ng-repeat="line in lines.lines">
-			<a ng-href="#/lines/{{line.line}}" class="btn btn-link" on-long-press="lines.itemOnLongPress(line)">
-				{{line.line}}
-			</a>
-		</li>
-	</ul>
+  <div class="tiles tiles-lines">
+    <a ng-href="#/lines/{{line.line}}" class="tile" ng-repeat="line in lines.lines">
+      <span class="tile-name">
+        {{line.line}}
+      </span>
+    </a>
+  </div>
 </div>

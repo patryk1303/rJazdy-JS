@@ -1,0 +1,11 @@
+/* line 2, C:/Users/wychowaniecp/tTableApp/src/app/lines/lines.scss */
+.tiles.tiles-lines .tile {
+  width: 15%;
+  height: 65px;
+  flex-grow: 1; }
+  @media screen and (max-width: 767px) {
+    /* line 2, C:/Users/wychowaniecp/tTableApp/src/app/lines/lines.scss */
+    .tiles.tiles-lines .tile {
+      width: 20%; } }
+
+/*# sourceMappingURL=lines.css.map */
