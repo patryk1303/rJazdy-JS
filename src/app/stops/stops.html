@@ -7,7 +7,8 @@
 	</div>
 	<ul class="nav nav-pills nav-stacked nav-condensed stops">
 		<li ng-repeat="stop in stops.stops | StopsFilter:stops.search">
-			<a ng-href="#/stops/{{stop.id}}" class="btn btn-link text-left-i" on-long-press="stops.itemOnLongPress(stop)">
+<!--			<a ng-href="#/stops/{{stop.id}}" class="btn btn-link text-left-i" on-long-press="stops.itemOnLongPress(stop)">-->
+			<a ng-href="#/stops/{{stop.id}}" class="btn btn-link text-left-i">
 				<stop-name data="stop" bull="true"></stop-name>
 			</a>
 		</li>

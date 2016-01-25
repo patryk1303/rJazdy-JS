@@ -5,6 +5,7 @@
   
   .tile {
     display: flex;
+    flex-grow: 1;
     border: 2px solid white;
     width: 50%;
     height: 40vh;
